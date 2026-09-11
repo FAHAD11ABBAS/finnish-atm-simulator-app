@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && cp -r dist/assets ./ && cp dist/favicon.svg ./ && cp dist/index.html ./index.html",
     "lint": "vite build",
     "preview": "vite preview"
   },
