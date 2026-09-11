@@ -17,7 +17,7 @@ export const initialProfiles = [
         id: "acc-1",
         name: "Käyttötili (Checking)",
         type: "checking",
-        iban: "FI2150009820012345",
+        iban: "FI0950009820012345",
         balance: 4850.75,
         currency: "EUR"
       },
@@ -25,7 +25,7 @@ export const initialProfiles = [
         id: "acc-2",
         name: "Kasvutuotto Säästötili (Savings)",
         type: "savings",
-        iban: "FI6850009820078901",
+        iban: "FI1950009820078901",
         balance: 18420.00,
         currency: "EUR"
       }
@@ -97,7 +97,7 @@ export const initialProfiles = [
       {
         id: "einv-1",
         sender: "Elisa Oyj",
-        iban: "FI4410001234567890",
+        iban: "FI7910001234567890",
         amount: 39.90,
         dueDate: "2026-09-25",
         reference: "12847291",
@@ -106,7 +106,7 @@ export const initialProfiles = [
       {
         id: "einv-2",
         sender: "If Vahinkovakuutus",
-        iban: "FI7810009876543210",
+        iban: "FI2510009876543210",
         amount: 74.20,
         dueDate: "2026-09-28",
         reference: "55910243",
@@ -126,7 +126,7 @@ export const initialProfiles = [
         id: "acc-aino-1",
         name: "Nordea Premium Käyttötili",
         type: "checking",
-        iban: "FI1415983000192837",
+        iban: "FI9615983000192837",
         balance: 9240.50,
         currency: "EUR"
       },
@@ -134,7 +134,7 @@ export const initialProfiles = [
         id: "acc-aino-2",
         name: "Sijoitus- ja Rahastotili",
         type: "savings",
-        iban: "FI3915983000998877",
+        iban: "FI3315983000998877",
         balance: 34100.00,
         currency: "EUR"
       }
@@ -179,7 +179,7 @@ export const initialProfiles = [
       {
         id: "einv-a1",
         sender: "Helen Kaukolämpö",
-        iban: "FI8210005544332211",
+        iban: "FI4910005544332211",
         amount: 112.50,
         dueDate: "2026-09-20",
         reference: "77291034",
@@ -199,7 +199,7 @@ export const initialProfiles = [
         id: "acc-juha-1",
         name: "S-Tili & Bonustili",
         type: "checking",
-        iban: "FI3939124000567890",
+        iban: "FI2739124000567890",
         balance: 1420.80,
         currency: "EUR"
       }

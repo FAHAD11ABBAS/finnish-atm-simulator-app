@@ -41,6 +41,21 @@ export class BankValidator {
   }
 
   /**
+   * Calculate exact Finnish IBAN from 14-digit BBAN
+   */
+  static calculateFinnishIBAN(bban14Digits) {
+    const cleanBban = bban14Digits.replace(/\D/g, '').padStart(14, '0');
+    const rearranged = cleanBban + "151800";
+    let remainder = 0;
+    for (let i = 0; i < rearranged.length; i++) {
+      remainder = (remainder * 10 + parseInt(rearranged[i], 10)) % 97;
+    }
+    const check = 98 - remainder;
+    const checkStr = check < 10 ? "0" + check : "" + check;
+    return `FI${checkStr}${cleanBban}`;
+  }
+
+  /**
    * Validate Finnish Reference Number (Viitenumero)
    * Using 7-3-1 weight multiplier algorithm (Suomalainen viitenumeron tarkistus)
    */

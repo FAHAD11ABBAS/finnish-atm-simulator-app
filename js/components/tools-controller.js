@@ -36,7 +36,8 @@ export class ToolsController {
     if (stressSlider) {
       stressSlider.addEventListener('input', (e) => {
         this.stressShock = Number(e.target.value);
-        $('#stress-shock-val').textContent = `+${this.stressShock.toFixed(1)} %`;
+        const shockEl = $('#stress-shock-val');
+        if (shockEl) shockEl.textContent = `+${this.stressShock.toFixed(1)} %`;
         this.calculateMortgage();
       });
     }

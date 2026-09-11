@@ -377,17 +377,28 @@ export class EbankingPortalController {
     const sumExpenses = Object.values(totals).reduce((a, b) => a + b, 0) || 1;
 
     // Update segment widths
-    $('#seg-housing')?.setAttribute('style', `width: ${(totals.housing / sumExpenses * 100).toFixed(1)}%`);
-    $('#seg-groceries')?.setAttribute('style', `width: ${(totals.groceries / sumExpenses * 100).toFixed(1)}%`);
-    $('#seg-transport')?.setAttribute('style', `width: ${(totals.transport / sumExpenses * 100).toFixed(1)}%`);
-    $('#seg-lifestyle')?.setAttribute('style', `width: ${(totals.lifestyle / sumExpenses * 100).toFixed(1)}%`);
-    $('#seg-other')?.setAttribute('style', `width: ${(totals.other / sumExpenses * 100).toFixed(1)}%`);
+    const segH = $('#seg-housing');
+    const segG = $('#seg-groceries');
+    const segT = $('#seg-transport');
+    const segL = $('#seg-lifestyle');
+    const segO = $('#seg-other');
+
+    if (segH) segH.setAttribute('style', `width: ${(totals.housing / sumExpenses * 100).toFixed(1)}%`);
+    if (segG) segG.setAttribute('style', `width: ${(totals.groceries / sumExpenses * 100).toFixed(1)}%`);
+    if (segT) segT.setAttribute('style', `width: ${(totals.transport / sumExpenses * 100).toFixed(1)}%`);
+    if (segL) segL.setAttribute('style', `width: ${(totals.lifestyle / sumExpenses * 100).toFixed(1)}%`);
+    if (segO) segO.setAttribute('style', `width: ${(totals.other / sumExpenses * 100).toFixed(1)}%`);
 
     // Update labels
-    $('#legend-val-housing')?.textContent = Formatters.formatEUR(totals.housing);
-    $('#legend-val-groceries')?.textContent = Formatters.formatEUR(totals.groceries);
-    $('#legend-val-transport')?.textContent = Formatters.formatEUR(totals.transport);
-    $('#legend-val-lifestyle')?.textContent = Formatters.formatEUR(totals.lifestyle);
+    const lblH = $('#legend-val-housing');
+    const lblG = $('#legend-val-groceries');
+    const lblT = $('#legend-val-transport');
+    const lblL = $('#legend-val-lifestyle');
+
+    if (lblH) lblH.textContent = Formatters.formatEUR(totals.housing);
+    if (lblG) lblG.textContent = Formatters.formatEUR(totals.groceries);
+    if (lblT) lblT.textContent = Formatters.formatEUR(totals.transport);
+    if (lblL) lblL.textContent = Formatters.formatEUR(totals.lifestyle);
   }
 
   exportStatementCsv() {
