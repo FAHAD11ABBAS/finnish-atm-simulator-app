@@ -1,0 +1,98 @@
+/**
+ * Finnish ATM & Smart Banking Simulator
+ * Design System Tokens & Global CSS Variables
+ * Author: Abbas Fahad (FAHAD11ABBAS)
+ */
+
+:root {
+  /* Brand & Theme Colors (Finnish Maritime & Nordic Glassmorphism) */
+  --color-brand-primary: #002f6c;         /* Finnish Deep Blue */
+  --color-brand-primary-light: #0d47a1;
+  --color-brand-secondary: #0a192f;       /* Midnight Navy */
+  --color-brand-dark: #020c1b;            /* Obsidian Void */
+  --color-brand-surface: #0e2439;         /* Elevated Surface */
+  --color-brand-surface-light: #163857;   /* Hover Surface */
+
+  /* Accent Colors */
+  --color-otto-orange: #ff7a00;           /* Finnish Otto ATM Orange */
+  --color-otto-orange-glow: rgba(255, 122, 0, 0.4);
+  --color-otto-yellow: #f59e0b;
+  --color-accent-blue: #00d2ff;
+  --color-accent-blue-glow: rgba(0, 210, 255, 0.35);
+  --color-emerald-success: #10b981;
+  --color-emerald-success-light: #34d399;
+  --color-emerald-glow: rgba(16, 185, 129, 0.35);
+  --color-crimson-error: #ef4444;
+  --color-crimson-error-light: #f87171;
+  --color-amber-warning: #f59e0b;
+
+  /* Nordic Platinum & Neutral Palette */
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+  --color-text-inverse: #020c1b;
+
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-border-medium: rgba(255, 255, 255, 0.15);
+  --color-border-highlight: rgba(0, 210, 255, 0.4);
+
+  /* Glassmorphism & Translucency */
+  --glass-bg-base: rgba(14, 36, 57, 0.75);
+  --glass-bg-elevated: rgba(22, 56, 87, 0.65);
+  --glass-bg-subtle: rgba(255, 255, 255, 0.03);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.12);
+  --glass-border-glow: 1px solid rgba(0, 210, 255, 0.3);
+  --glass-blur: blur(16px);
+  --glass-blur-heavy: blur(28px);
+
+  /* ATM Hardware Metallic Palette */
+  --color-atm-bezel: #1e293b;
+  --color-atm-bezel-border: #334155;
+  --color-atm-screen-bg: #020914;
+  --color-atm-screen-border: #004b87;
+  --color-atm-key-bg: #334155;
+  --color-atm-key-hover: #475569;
+  --color-atm-key-active: #1e293b;
+  --color-atm-led-green: #22c55e;
+  --color-atm-led-orange: #ff7a00;
+  --color-atm-led-red: #ef4444;
+
+  /* Shadows & Depth */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.65);
+  --shadow-glow-blue: 0 0 20px rgba(0, 210, 255, 0.35);
+  --shadow-glow-orange: 0 0 20px rgba(255, 122, 0, 0.4);
+  --shadow-glow-emerald: 0 0 20px rgba(16, 185, 129, 0.35);
+
+  /* Typography */
+  --font-sans: 'Outfit', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, Monaco, monospace;
+  --font-display: 'Plus Jakarta Sans', 'Outfit', sans-serif;
+
+  /* Border Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Layout & Spacing */
+  --max-width-site: 1320px;
+  --header-height: 72px;
+  --z-base: 1;
+  --z-elevated: 10;
+  --z-sticky: 100;
+  --z-modal-backdrop: 900;
+  --z-modal: 1000;
+  --z-toast: 1100;
+}

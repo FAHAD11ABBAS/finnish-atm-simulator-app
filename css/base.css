@@ -1,0 +1,580 @@
+/**
+ * Finnish ATM & Smart Banking Simulator
+ * Base styles, typography, reset & shared UI primitives
+ * Author: Abbas Fahad (FAHAD11ABBAS)
+ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-brand-dark);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(0, 47, 108, 0.4) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(13, 71, 161, 0.25) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(10, 25, 47, 0.7) 0px, transparent 50%),
+    radial-gradient(at 80% 50%, rgba(255, 122, 0, 0.04) 0px, transparent 40%);
+  background-attachment: fixed;
+  color: var(--color-text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Accessibility & Focus */
+:focus-visible {
+  outline: 2px solid var(--color-accent-blue);
+  outline-offset: 3px;
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.2;
+}
+
+p {
+  color: var(--color-text-secondary);
+}
+
+a {
+  color: var(--color-accent-blue);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: #60a5fa;
+}
+
+/* Container & Layout */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  max-width: var(--max-width-site);
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 20px 80px;
+}
+
+/* Header & Top Navigation */
+.app-header {
+  height: var(--header-height);
+  background: rgba(10, 25, 47, 0.85);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: var(--glass-border);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  display: flex;
+  align-items: center;
+}
+
+.header-container {
+  max-width: var(--max-width-site);
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.brand-badge-flag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 22px;
+  background: #ffffff;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.brand-badge-flag::before {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: #002f6c;
+}
+
+.brand-badge-flag::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: #002f6c;
+}
+
+.brand-title-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 30%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-subtitle {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-otto-orange);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Mode Switcher Nav (ATM Terminal vs Smart e-Banking) */
+.mode-nav-tabs {
+  display: flex;
+  background: rgba(2, 12, 27, 0.6);
+  border: var(--glass-border);
+  padding: 4px;
+  border-radius: var(--radius-full);
+  gap: 4px;
+}
+
+.mode-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  border: none;
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.mode-tab-btn:hover {
+  color: var(--color-text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.mode-tab-btn.active {
+  background: linear-gradient(135deg, var(--color-brand-primary) 0%, #0d47a1 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 47, 108, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.mode-tab-btn.active.atm-mode-active {
+  background: linear-gradient(135deg, #e65100 0%, var(--color-otto-orange) 100%);
+  box-shadow: 0 4px 14px var(--color-otto-orange-glow);
+}
+
+/* Header Action Controls */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lang-selector-wrap {
+  position: relative;
+}
+
+.lang-select {
+  appearance: none;
+  background: rgba(14, 36, 57, 0.8);
+  color: var(--color-text-primary);
+  border: var(--glass-border);
+  padding: 7px 28px 7px 12px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+}
+
+.lang-select:hover, .lang-select:focus {
+  border-color: var(--color-accent-blue);
+}
+
+.lang-icon-arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+}
+
+.audio-toggle-btn, .bank-id-btn-header {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: rgba(14, 36, 57, 0.8);
+  border: var(--glass-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.audio-toggle-btn:hover, .bank-id-btn-header:hover {
+  background: var(--color-brand-surface-light);
+  border-color: var(--color-accent-blue);
+  transform: translateY(-1px);
+}
+
+.audio-toggle-btn.muted {
+  color: var(--color-text-muted);
+  opacity: 0.75;
+}
+
+.bank-id-btn-header {
+  background: linear-gradient(135deg, #002f6c 0%, #004b87 100%);
+  border: 1px solid rgba(0, 210, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 47, 108, 0.4);
+}
+
+.bank-id-btn-header:hover {
+  box-shadow: 0 4px 12px var(--color-accent-blue-glow);
+}
+
+/* Glass Panels & Reusable Cards */
+.glass-panel {
+  background: var(--glass-bg-base);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: 24px;
+  position: relative;
+}
+
+.glass-panel-elevated {
+  background: var(--glass-bg-elevated);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: var(--shadow-xl);
+}
+
+/* Button Primitives */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-decoration: none;
+  user-select: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #002f6c 0%, #0d47a1 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 14px rgba(0, 47, 108, 0.4);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #003b88 0%, #1565c0 100%);
+  box-shadow: 0 6px 18px rgba(0, 47, 108, 0.6);
+  transform: translateY(-1px);
+}
+
+.btn-otto {
+  background: linear-gradient(135deg, #e65100 0%, var(--color-otto-orange) 100%);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 14px var(--color-otto-orange-glow);
+}
+
+.btn-otto:hover {
+  background: linear-gradient(135deg, #f57c00 0%, #ff8f00 100%);
+  box-shadow: 0 6px 20px rgba(255, 122, 0, 0.6);
+  transform: translateY(-1px);
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #059669 0%, var(--color-emerald-success) 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px var(--color-emerald-glow);
+}
+
+.btn-success:hover {
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text-primary);
+  border: var(--glass-border);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-1px);
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn-lg {
+  padding: 14px 28px;
+  font-size: 1.05rem;
+  border-radius: var(--radius-lg);
+}
+
+/* Badges & Status Pills */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.badge-success {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--color-emerald-success-light);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.badge-warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.badge-otto {
+  background: rgba(255, 122, 0, 0.15);
+  color: #ff9800;
+  border: 1px solid rgba(255, 122, 0, 0.35);
+}
+
+.badge-info {
+  background: rgba(0, 210, 255, 0.15);
+  color: var(--color-accent-blue);
+  border: 1px solid rgba(0, 210, 255, 0.35);
+}
+
+/* Form Inputs */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.form-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.form-input, .form-select {
+  background: rgba(2, 12, 27, 0.7);
+  border: var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 11px 14px;
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+  width: 100%;
+}
+
+.form-input:focus, .form-select:focus {
+  border-color: var(--color-accent-blue);
+  box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.18);
+  outline: none;
+}
+
+.form-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.form-input.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Section Header */
+.section-header {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-desc {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+/* Global Footer */
+.app-footer {
+  background: rgba(2, 12, 27, 0.95);
+  border-top: var(--glass-border);
+  padding: 32px 20px 24px;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: var(--max-width-site);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--color-text-secondary);
+  font-size: 0.86rem;
+  transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+  color: var(--color-accent-blue);
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.creator-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: rgba(0, 47, 108, 0.35);
+  border: 1px solid rgba(0, 210, 255, 0.25);
+  border-radius: var(--radius-full);
+  color: var(--color-text-primary);
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.creator-badge:hover {
+  border-color: var(--color-accent-blue);
+  box-shadow: 0 0 12px var(--color-accent-blue-glow);
+  color: #ffffff;
+}
+
+/* Screen Mode Views toggle animation */
+.view-container {
+  display: none;
+  animation: fadeIn 300ms ease-out forwards;
+}
+
+.view-container.active-view {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

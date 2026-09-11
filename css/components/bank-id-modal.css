@@ -1,0 +1,224 @@
+/**
+ * Finnish Bank ID (Pankkitunnukset / Tupas / Mobile ID) Modal Styles
+ * Author: Abbas Fahad (FAHAD11ABBAS)
+ */
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(2, 12, 27, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: var(--z-modal-backdrop);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+}
+
+.modal-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.bank-id-dialog {
+  background: linear-gradient(180deg, #0e2439 0%, #071526 100%);
+  border: 1px solid rgba(0, 210, 255, 0.4);
+  border-radius: var(--radius-2xl);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9), 0 0 30px var(--color-accent-blue-glow);
+  max-width: 520px;
+  width: 100%;
+  overflow: hidden;
+  transform: scale(0.95);
+  transition: transform var(--transition-normal);
+}
+
+.modal-backdrop.open .bank-id-dialog {
+  transform: scale(1);
+}
+
+/* Modal Header */
+.bank-id-header {
+  padding: 20px 24px;
+  background: rgba(0, 47, 108, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bank-id-title-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bank-id-shield-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #002f6c, #00d2ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+.bank-id-title-box h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+}
+
+.modal-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-text-secondary);
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-fast);
+}
+
+.modal-close-btn:hover {
+  color: #ffffff;
+}
+
+/* Modal Body */
+.bank-id-body {
+  padding: 24px;
+}
+
+/* Step 1: Select Bank Provider */
+.bank-selector-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 16px 0 20px;
+}
+
+.bank-option-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: rgba(2, 12, 27, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.bank-option-btn:hover {
+  background: rgba(0, 47, 108, 0.5);
+  border-color: var(--color-accent-blue);
+  transform: translateY(-2px);
+}
+
+.bank-option-btn.selected {
+  background: linear-gradient(135deg, rgba(0, 47, 108, 0.9) 0%, rgba(13, 71, 161, 0.9) 100%);
+  border-color: var(--color-accent-blue);
+  box-shadow: 0 0 12px var(--color-accent-blue-glow);
+}
+
+.bank-dot-logo {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: #ffffff;
+}
+
+.bank-dot-op { background: #ff5000; }
+.bank-dot-nordea { background: #0000a0; }
+.bank-dot-spankki { background: #007a3d; }
+.bank-dot-danske { background: #003666; }
+.bank-dot-aktia { background: #005696; }
+.bank-dot-handels { background: #004b87; }
+
+/* Step 2: Auth Verification (Key Code / PIN / Mobile ID) */
+.auth-step-box {
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeIn 250ms ease-out forwards;
+}
+
+.auth-step-box.active {
+  display: flex;
+}
+
+.auth-challenge-banner {
+  background: rgba(0, 47, 108, 0.3);
+  border: 1px solid rgba(0, 210, 255, 0.3);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.auth-security-num {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-accent-blue);
+  letter-spacing: 0.1em;
+}
+
+.preset-users-selector {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.preset-user-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: rgba(2, 12, 27, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.preset-user-pill:hover {
+  background: rgba(0, 47, 108, 0.3);
+  border-color: var(--color-accent-blue);
+}
+
+.preset-user-pill.selected {
+  background: rgba(0, 47, 108, 0.7);
+  border-color: var(--color-accent-blue);
+}
+
+.preset-user-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.preset-user-role {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+}

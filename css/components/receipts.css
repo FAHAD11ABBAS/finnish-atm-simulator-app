@@ -1,0 +1,114 @@
+/**
+ * Finnish ATM Thermal Printed Receipt Styles
+ * Author: Abbas Fahad (FAHAD11ABBAS)
+ */
+
+.receipt-modal-dialog {
+  background: transparent;
+  max-width: 380px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.thermal-paper {
+  background: #fdfbf7;
+  color: #111827;
+  width: 100%;
+  padding: 28px 24px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.4;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+  position: relative;
+  border-radius: 4px 4px 0 0;
+  animation: printRoll 600ms ease-out forwards;
+}
+
+@keyframes printRoll {
+  from { transform: translateY(-30px) scaleY(0.7); opacity: 0; }
+  to { transform: translateY(0) scaleY(1); opacity: 1; }
+}
+
+/* Zig-zag jagged thermal paper tear edge */
+.thermal-paper::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: radial-gradient(circle, transparent, transparent 50%, #fdfbf7 50%, #fdfbf7 100%);
+  background-size: 14px 14px;
+}
+
+.receipt-header {
+  text-align: center;
+  border-bottom: 2px dashed #9ca3af;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+}
+
+.receipt-otto-logo {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.6rem;
+  color: #ea580c;
+  letter-spacing: -0.02em;
+}
+
+.receipt-subhead {
+  font-size: 0.72rem;
+  color: #4b5563;
+  text-transform: uppercase;
+}
+
+.receipt-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.receipt-row.emphasis {
+  font-weight: 800;
+  font-size: 0.95rem;
+  border-top: 1px solid #d1d5db;
+  border-bottom: 1px solid #d1d5db;
+  padding: 6px 0;
+  margin: 4px 0;
+}
+
+.receipt-divider {
+  border-top: 1px dashed #9ca3af;
+  margin: 6px 0;
+}
+
+.receipt-barcode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding-top: 10px;
+  border-top: 1px dashed #9ca3af;
+  text-align: center;
+}
+
+.barcode-svg {
+  width: 85%;
+  height: 38px;
+}
+
+.receipt-actions-bar {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}

@@ -1,0 +1,287 @@
+/**
+ * Finnish Bank Cards (3D Interactive Pankkikortti / Debit / Credit) Styles
+ * Author: Abbas Fahad (FAHAD11ABBAS)
+ */
+
+.cards-showcase-wrap {
+  perspective: 1000px;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
+/* 3D Bank Card Structure */
+.bank-card-3d {
+  width: 100%;
+  max-width: 380px;
+  height: 230px;
+  border-radius: var(--radius-xl);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 210, 255, 0.2);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  user-select: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.bank-card-3d:hover {
+  transform: translateY(-6px) rotateX(4deg) rotateY(-4deg);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.85), 0 0 30px var(--color-accent-blue-glow);
+}
+
+/* Card Themes */
+.card-nordea-theme {
+  background: linear-gradient(135deg, #0000a0 0%, #002f6c 50%, #0a192f 100%);
+}
+
+.card-op-theme {
+  background: linear-gradient(135deg, #e65100 0%, #b23b00 50%, #1e1b18 100%);
+}
+
+.card-spankki-theme {
+  background: linear-gradient(135deg, #007a3d 0%, #004d26 50%, #091c13 100%);
+}
+
+.card-platinum-theme {
+  background: linear-gradient(135deg, #334155 0%, #1e293b 50%, #0f172a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Card Holographic Sheen */
+.bank-card-3d::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  background: linear-gradient(
+    60deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.12) 45%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0.12) 55%,
+    transparent 60%
+  );
+  transform: rotate(30deg);
+  pointer-events: none;
+  animation: shineHolo 6s infinite ease-in-out;
+}
+
+@keyframes shineHolo {
+  0% { transform: translateY(-100%) rotate(30deg); }
+  30%, 100% { transform: translateY(100%) rotate(30deg); }
+}
+
+/* Card Top Row: Bank Name & Contactless */
+.card-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.card-bank-brand {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.card-contactless-icon {
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.3rem;
+}
+
+/* Card Middle Row: Gold Chip & Type */
+.card-mid-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 2;
+}
+
+.card-emv-chip {
+  width: 44px;
+  height: 34px;
+  background: linear-gradient(135deg, #d4af37 0%, #f5d77f 50%, #aa820a 100%);
+  border-radius: 6px;
+  border: 1px solid #785c07;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.6), 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.card-emv-chip::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: #785c07;
+}
+
+.card-emv-chip::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: #785c07;
+}
+
+.card-type-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Card Number */
+.card-number-display {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+/* Card Bottom Row: Holder & Expiry & Logo */
+.card-bottom-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+.card-holder-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-label-small {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.card-holder-name {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.card-expiry-val {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.card-network-logo {
+  font-size: 1.1rem;
+  font-weight: 900;
+  font-style: italic;
+  color: #ffffff;
+  letter-spacing: -0.05em;
+}
+
+/* Card Controls & Security Panel */
+.card-security-controls {
+  background: var(--glass-bg-base);
+  backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.security-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.security-toggle-row:last-child {
+  border-bottom: none;
+}
+
+.toggle-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.toggle-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.toggle-desc {
+  font-size: 0.74rem;
+  color: var(--color-text-secondary);
+}
+
+/* Modern Switch / Toggle */
+.switch-control {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+
+.switch-control input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider-knob {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #334155;
+  transition: 0.3s;
+  border-radius: 24px;
+}
+
+.slider-knob::before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+input:checked + .slider-knob {
+  background-color: var(--color-emerald-success);
+}
+
+input:checked + .slider-knob::before {
+  transform: translateX(20px);
+}

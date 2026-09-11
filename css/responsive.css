@@ -1,0 +1,142 @@
+/**
+ * Responsive & Mobile Adaptation Styles
+ * Author: Abbas Fahad (FAHAD11ABBAS)
+ */
+
+@media (max-width: 1024px) {
+  .atm-layout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ebanking-main-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .atm-hardware-panel {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .atm-keypad-wrap {
+    grid-column: span 2;
+    order: 3;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    height: auto;
+    padding: 12px 0;
+  }
+
+  .header-container {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .mode-nav-tabs {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .mode-tab-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+
+  .atm-chassis {
+    padding: 16px;
+    border-width: 2px;
+  }
+
+  .atm-screen-bezel {
+    padding: 10px;
+  }
+
+  .atm-screen-display {
+    min-height: 380px;
+    padding: 16px;
+  }
+
+  .atm-menu-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .fast-cash-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .atm-hardware-panel {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .atm-keypad-wrap {
+    grid-column: auto;
+  }
+
+  .quick-actions-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .accounts-pill-list {
+    grid-template-columns: 1fr;
+  }
+
+  .bank-selector-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding: 16px 12px 60px;
+  }
+
+  .total-balance-amount {
+    font-size: 1.8rem;
+  }
+
+  .atm-keypad-grid {
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .atm-key {
+    width: 38px;
+    height: 36px;
+    font-size: 0.95rem;
+  }
+
+  .bank-card-3d {
+    height: 200px;
+    padding: 18px;
+  }
+
+  .card-number-display {
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+  }
+}
